@@ -1,0 +1,6 @@
+#F9FBC3, #B4A2F6, #ECAAFB, #FCE54D, #989997, #FFFFFF
+#0E0E34 #252E8A #9A4D87 #5A7FC8 #F7F6F7
+<a href="#about">About</a>
+            <a href="#calculator">Calculator</a>
+            <a href="#source_code">Source Code (Python)</a>
+            <a href="#reduce">Reduce your carbon footprint</a>

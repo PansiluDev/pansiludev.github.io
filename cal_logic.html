@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carbon Calculator Logic</title>
+<link rel="stylesheet" href="/website/CarbonFootprint++/css/styles_cal_logic.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Carbon Footprint Calculator Logic</h1>
+
+    <div class="section">
+        <h3>Car Emissions</h3>
+        <p><span class="comment">// Calculate fuel consumed and emissions</span></p>
+        <p><span class="variable">litersConsumed</span> = <span class="variable">carKm</span> * <span class="variable">carL100</span> / <span class="number">100</span></p>
+        <p><span class="variable">carEmissions</span> = <span class="variable">litersConsumed</span> * (<span class="variable">car_gasoline</span> or <span class="variable">car_diesel</span>)</p>
+    </div>
+
+    <div class="section">
+        <h3>Flight Emissions</h3>
+        <p><span class="variable">flightEmissions</span> = <span class="variable">flightKm</span> * <span class="variable">factor_for_flight_class</span></p>
+    </div>
+
+    <div class="section">
+        <h3>Electricity Emissions</h3>
+        <p><span class="comment">// Convert monthly consumption to annual kWh</span></p>
+        <p><span class="variable">electricity_kwh</span> = <span class="variable">monthlyWatts</span> * <span class="number">24</span> * <span class="number">30</span> / <span class="number">1000</span></p>
+        <p><span class="variable">electricityEmissions</span> = <span class="variable">electricity_kwh</span> * <span class="variable">electricity_factor</span></p>
+    </div>
+
+    <div class="section">
+        <h3>Total Footprint</h3>
+        <p><span class="variable">totalEmissions</span> = <span class="variable">carEmissions</span> + <span class="variable">flightEmissions</span> + <span class="variable">electricityEmissions</span> + ...</p>
+    </div>
+</div>
+
+</body>
+</html>

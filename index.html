@@ -1,127 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pansilu Chethiya | Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #222;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        nav {
-            margin-top: 10px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        section {
-            padding: 50px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .projects {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .project-card {
-            background-color: #fff;
-            padding: 20px;
-            width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .project-card h3 {
-            margin-top: 0;
-        }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #222;
-            color: #fff;
-        }
-        a.button {
-            display: inline-block;
-            padding: 10px 15px;
-            margin-top: 10px;
-            background-color: #222;
-            color: #fff;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        a.button:hover {
-            background-color: #555;
-        }
-    </style>
+    <title>Carpon Footprint+ | Pansilu Chethiya</title>
+    <link rel="stylesheet" href="/website/CarbonFootprint++/css/styles_index.css">
 </head>
+
 <body>
-    <header>
-        <h1>Pansilu Chethiya</h1>
-        <nav>
+    <audio src = ""></audio>
+<header class="hero-header">
+    <nav class="navbar">
+        <div class="logo">CarbonFootprintCalP 🌍</div>
+        <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+            <a href="#calculator">Calculator</a>
+            <a href="#source_code">Source Code</a>
+            <a href="#reduce">Reduce Emissions</a>
+        </div>
+    </nav>
+
+    <div class="hero-content">
+        <h1>CarbonFootprintCalP</h1>
+        <h2>Developed by <span><a href="https://pansiludev.github.io/">Pansilu Chethiya</a></span></h2>
+        <p>
+            A free, open-source project designed to help people understand their carbon footprint
+            and take meaningful steps toward a greener, sustainable future.
+        </p>
+        <a href="#calculator" class="hero-btn">Try the Calculator</a>
+    </div>
+</header>
+
 
     <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! I’m Pansilu, a passionate developer. I enjoy creating web projects, coding fun apps, and exploring new technologies.</p>
+        <h2>"What is Carbon Footprint?" </h2>
+        <h4>
+            <p>A carbon footprint is the total amount of greenhouse gases, like carbon dioxide and methane,<br>
+                released into the atmosphere by a person, organization, event, or product. It is a measure <br>
+                 of the impact human activities have on climate change and is usually expressed in tons of <br>
+                 carbon dioxide equivalent (CO₂e). These emissions come from both direct actions, such as <br>
+                 driving a car, and indirect ones, like the energy used to produce the goods and services we<br>
+                 consume </p>
+        </h4>
+        <h2>"Why is it important?"</h2>
+        <h4>
+            <p>
+                Carbon footprint is important because it helps combat climate change by linking human activities<br>
+                 to greenhouse gas emissions. Measuring it allows for the identification of high-emission activities,<br>
+                  enabling individuals and businesses to make more informed decisions, set reduction goals, and foster<br>
+                  accountability. Ultimately, reducing carbon footprints protects the environment, improves health,<br>
+                  strengthens the economy, and preserves natural ecosystems for future generations.<br>
+        </p>
+        </h4>
+        <h2>"How is it calculated?"</h2>
+        <h4>
+            <p>Carbon footprint is calculated by multiplying the activity data (e.g., miles driven, kilowatt-hours of<br>  
+                electricity used) by its corresponding emission factor (a number representing the greenhouse gases<br> 
+                released per unit of activity). The total greenhouse gas (GHG) emissions are then summed up to find<br> 
+                the carbon footprint, often expressed in metric tons of carbon dioxide equivalent (\(CO_{2}e\)).<br> 
+                Factors like transportation, home energy use, diet, and waste management are key components<br> 
+                in personal and organizational calculations.
+            </p>
+        </h4>
     </section>
+    <section id="calculator">
+        <p>Use the free and open source calculator right now develped 90% by humans<br>
+            (I only used AI for developing the formulas(10%))
+             </p>
+        <h1>
+            <a href="calculator.html">Link to calculator</a>
+        </h1>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>A brief description of your project.</p>
-                <a href="/flappybird/index.html" class="button">View Project</a>
-            </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>A brief description of your project.</p>
-                <a href="/CarbonFootprint++/index.html" class="button">View Project</a>
-            </div>
-            <div class="project-card">
-                <h3>Project 3</h3>
-                <p>A brief description of your project.</p>
-                <a href="#" class="button">View Project</a>
-            </div>
+        <p>(NOTE THE CALCULATOR IS CALCULATED IN METRIC UNITS!)</p>
+        <div id="logic-container">
+        <div class="oflashcard">
+        <p>Get the Calculator Logic
+        </p>
+        <h3><a href="cal_logic.html">The Calculator Logic</a></h3>
+        </div>
+    </div>
+    </section>
+    <section>
+        <div id="logic-container">
+        <div class="oflashcard">
+        <h1>Source Code: </h1>
+        <a href="source.html">Click Me</a>
+        </div>
         </div>
     </section>
+    <section id = "reduce">
+        <div id="logic-container">
+            <div class="flashcard">
+        <h2>"How to reduce your carbon footprint? "
+        </h2>
+        </div>
+        <div class="flashcard">
+        <p><br>In today’s world, climate change has become one of the most pressing challenges.<br>
+             Human activities such as driving, industrial production, and excessive energy use release<br>
+            large amounts of greenhouse gases into the atmosphere, contributing to global warming.<br>
+            One effective way individuals can combat climate change is by reducing their carbon<br>
+            footprint—the total amount of carbon dioxide and other greenhouse gases they produce.<br>
+            By making conscious lifestyle choices, we can lessen our impact on the planet and promote<br> 
+            a more sustainablefuture.<br><br></div>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>You can reach me at <a href="mailto:pansiluchethiya2012@outlook.com">Mail ME</a></p>
-        <p>Or find me on GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
-    </section>
+<div class="flashcard">
+1. Use Sustainable Transportation<br><br>
 
-    <footer>
-        &copy; 2025 Pansilu Chethiya
-    </footer>
+Transportation is one of the largest contributors to an individual’s carbon footprint.<br>
+To reduce emissions, people can use public transportation, cycle, or walk instead of driving.<br>
+Carpooling and using electric or hybrid vehicles are also effective strategies. Even small <br>
+changes, like combining errands into a single trip, can significantly reduce fuel consumption<br>
+and carbon emissions over time.<br><br></div>
+
+<div class="flashcard">
+2. Conserve Energy at Home<br><br>
+
+Household energy use contributes heavily to carbon emissions, especially when electricity<br>
+comes from fossil fuels. Simple actions like turning off lights when not in use, unplugging <br>
+electronic devices, and using energy-efficient appliances can make a big difference. Additionally, <br>
+switching to renewable energy sources, such as solar panels or green energy plans offered by utility <br>
+companies, further reduces an individual’s carbon footprint.<br><br></div>
+
+<div class="flashcard">
+3. Adopt a Sustainable Diet<br><br>
+
+Food production, particularly meat and dairy, has a large carbon footprint due to resource-intensive <br>
+farming and methane emissions from livestock. Reducing meat consumption, choosing locally sourced or <br>
+seasonal produce, and minimizing food waste are effective ways to lower emissions associated with food. <br>
+Plant-based diets or incorporating “meatless days” into weekly routines can have a significant environmental impact.<br><br></div>
+<div class="flashcard">
+4. Reduce, Reuse, and Recycle<br><br>
+
+Consumer habits play a key role in carbon emissions. Producing, transporting, and disposing of goods all <br>
+contribute to greenhouse gas emissions. By reducing unnecessary purchases, reusing items, and recycling <br>
+materials like paper, plastic, and glass, individuals can minimize waste and the energy required to produce <br>
+new products. Supporting sustainable brands and products with lower environmental impact also helps reduce <br>
+your carbon footprint.<br><br></div>
+
+<div class="flashcard">
+5. Advocate and Educate<br><br>
+
+Beyond personal habits, advocating for policies and practices that reduce carbon emissions can have a broader <br>
+impact. Supporting renewable energy initiatives, participating in community tree-planting projects, or educating <br>
+others about sustainable practices helps create a culture of environmental responsibility. Collective action <br>
+magnifies the effect of individual efforts and drives systemic change.<br><br></div>
+
+<div class="flashcard">
+Conclusion<br><br>
+
+Reducing one’s carbon footprint requires conscious effort and lifestyle adjustments, but the benefits are <br>
+immense—not only for the environment but for personal well-being and future generations. Simple steps like <br>
+using sustainable transportation, conserving energy, adopting a plant-based diet, reducing waste, and promoting<br>
+environmental awareness can collectively make a significant difference. By taking responsibility for our <br>
+carbon emissions, each of us can contribute to a healthier, more sustainable planet.</p></div>
+ </div>   
+</section>
+
 </body>
-</html>
 
+</html>
