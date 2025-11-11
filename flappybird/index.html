@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pansilu Chethiya | 😊</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <style> 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #f0f6fc;
+      --muted: #8b949e;
+      --accent: #00aaff;
+      --transition: 0.3s ease;
+    }
+
+    body.light {
+      --bg: #f6f8fa;
+      --card: #ffffff;
+      --text: #1b1f23;
+      --muted: #4a5568;
+      --accent: #0077ff;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1100px;
+      padding: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    header h1 {
+      color: var(--accent);
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 1rem;
+      margin-left: 1rem;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .theme-toggle {
+      background: var(--card);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      max-width: 800px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .hero button {
+      padding: 0.8rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .hero button:hover {
+      background: #0088cc;
+      transform: translateY(-3px);
+    }
+
+    .game-section {
+      text-align: center;
+      padding: 3rem 1rem;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .game-section h2 {
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .game-wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    canvas {
+      border: 3px solid var(--accent);
+      border-radius: 12px;
+      background: #000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      max-width: 100%;
+      height: auto;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .contact h2 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact a {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact a:hover {
+      background: #0088cc;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 1rem;
+      width: 100%;
+    }
+/* Responsive */
+@media (max-width: 600px) {
+  .code-section {
+    padding: 20px 10px;
+    font-size: 13px;
+  }
+  .code-section pre {
+    padding: 12px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Pansilu Chethiya</h1>
+    <nav>
+      <a href="#game">Game</a>
+      <a href="#contact">Contact</a>
+      <a href="#code">Code</a>
+
+    </nav>
+    <button class="theme-toggle" id="themeToggle">🌛</button>
+  </header>
+
+  <section class="hero">
+    <h2>Flappy Bird Clone (Also known as the wild Vihanga) 🐤</h2>
+    <p>A sleek, responsive recreation of Vihanga Bird built with HTML and JavaScript (almost). Works beautifully on both desktop and mobile — tap or press W to flap!</p>
+    <button onclick="document.getElementById('game').scrollIntoView({behavior:'smooth'})">Play Now (or else)</button>
+  </section>
+
+  <section id="game" class="game-section">
+    <h2>🎮 Play the Game</h2>
+    <div class="game-wrapper">
+      <canvas id="gameCanvas" width="400" height="650"></canvas>
+    </div>
+  </section>
+
+<section id="code" style="background: var(--card); color: var(--text); text-align: center; padding: 4rem 1.5rem; border-radius: 16px; max-width: 900px; margin: 3rem auto; box-shadow: 0 4px 20px rgba(0,0,0,0.4);">
+  <h2 style="color: var(--accent); font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 1rem;">
+    💻 This is the Code
+  </h2>
+  <p style="color: var(--muted); font-size: 1rem; margin-bottom: 2rem; line-height: 1.6;">
+    Explore the full Python version of the game in a clean, mini IDE-style view.
+  </p>
+  <a href="source.html" 
+     style="display: inline-block; background: var(--accent); color: white; text-decoration: none; font-weight: 600; padding: 0.9rem 2rem; border-radius: 10px; transition: all 0.3s ease;">
+     View Source Code
+  </a>
+</section>
+
+
+  <section id="contact" class="contact">
+    <h2>Let's Connect</h2>
+    <p>Have feedback? Get in touch!</p>
+    <a href="mailto:pansiluchethiya2012@outlook.com">📧 Email Me — also on Discord: pansilululu_96243</a>
+  </section>
+
+  <footer>© 2025 Pansilu Chethiya</footer>
+
+  <script>
+    // === THEME TOGGLE ===
+    const toggle = document.getElementById("themeToggle");
+    const body = document.body;
+    if (localStorage.getItem("theme") === "light") {
+      body.classList.add("light");
+      toggle.textContent = "☀️";
+    }
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("light");
+      const isLight = body.classList.contains("light");
+      toggle.textContent = isLight ? "☀️" : "🌛";
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    });
+
+    // === FLAPPY BIRD GAME ===
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      const scale = Math.min(window.innerWidth / 400, 1);
+      canvas.style.width = 400 * scale + "px";
+      canvas.style.height = 650 * scale + "px";
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    const GAME_WIDTH = 400, GAME_HEIGHT = 650;
+    const birdWidth = 34, birdHeight = 24, pipeWidth = 64, pipeHeight = 512;
+    let bird = { x: GAME_WIDTH/8, y: GAME_HEIGHT/2, width: birdWidth, height: birdHeight, velocityY: 0, image: new Image() };
+    let pipes = [];
+    let gravity = 0.4, velocityX = -2, score = 0, gameOver = false;
+
+    const background = new Image(), topPipeImg = new Image(), bottomPipeImg = new Image();
+    background.src = "assets/flappybirdbg.png";
+    bird.image.src = "assets/flappybird.png";
+    topPipeImg.src = "assets/toppipe.png";
+    bottomPipeImg.src = "assets/bottompipe.png";
+
+    function draw() {
+      ctx.drawImage(background, 0, 0, GAME_WIDTH, GAME_HEIGHT);
+      ctx.drawImage(bird.image, bird.x, bird.y, bird.width, bird.height);
+      for (let pipe of pipes) ctx.drawImage(pipe.image, pipe.x, pipe.y, pipeWidth, pipeHeight);
+      ctx.fillStyle = "white";
+      ctx.font = "40px Comic Sans MS";
+      ctx.fillText(Math.floor(score), 5, 40);
+      if (gameOver) {
+        ctx.fillStyle = "red";
+        ctx.font = "50px Comic Sans MS";
+        ctx.textAlign = "center";
+        ctx.fillText(`Game Over: ${Math.floor(score)}`, GAME_WIDTH/2, GAME_HEIGHT/2);
+        ctx.fillStyle = "white";
+        ctx.font = "22px Comic Sans MS";
+        ctx.fillText("Tap / W to restart", GAME_WIDTH/2, GAME_HEIGHT/2 + 48);
+        ctx.textAlign = "left";
+      }
+    }
+
+    function move() {
+      bird.velocityY += gravity;
+      bird.y += bird.velocityY;
+      bird.y = Math.max(bird.y, 0);
+      if (bird.y > GAME_HEIGHT) gameOver = true;
+      for (let pipe of pipes) {
+        pipe.x += velocityX;
+        if (!pipe.passed && bird.x > pipe.x + pipeWidth) { score += 0.5; pipe.passed = true; }
+        if (bird.x < pipe.x + pipeWidth && bird.x + bird.width > pipe.x &&
+            bird.y < pipe.y + pipeHeight && bird.y + bird.height > pipe.y) {
+          gameOver = true; return;
+        }
+      }
+      pipes = pipes.filter(p => p.x > -pipeWidth);
+    }
+
+    function createPipe() {
+      const randomY = -pipeHeight/4 - Math.random()*(pipeHeight/2);
+      const gap = GAME_HEIGHT/4;
+      pipes.push({ x: GAME_WIDTH, y: randomY, image: topPipeImg, passed: false });
+      pipes.push({ x: GAME_WIDTH, y: randomY + pipeHeight + gap, image: bottomPipeImg, passed: false });
+    }
+
+    function resetGame() {
+      bird.x = GAME_WIDTH/8; bird.y = GAME_HEIGHT/2; bird.velocityY = 0;
+      pipes = []; score = 0; gameOver = false;
+    }
+
+    document.addEventListener("keydown", e => {
+      if (!gameOver && ["RightClick","ArrowUp", "w", "W"].includes(e.key)) bird.velocityY = -6;
+      else if (gameOver && ["w", "W"].includes(e.key)) resetGame();
+    });
+
+    canvas.addEventListener("touchstart", () => {
+      if (!gameOver) bird.velocityY = -6;
+      else resetGame();
+    });
+
+    setInterval(() => { if (!gameOver) createPipe(); }, 1500);
+
+    function loop() {
+      if (!gameOver) move();
+      draw();
+      requestAnimationFrame(loop);
+    }
+    loop();
+  </script>
+</body>
+</html>
