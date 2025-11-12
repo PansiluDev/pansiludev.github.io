@@ -1,8 +1,10 @@
 /* ---------- Body Reset & Background ---------- */
+
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-image: url('background.jpg');
+    background-image: url('../images/background.jpg');
+    ;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -18,11 +20,14 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.55); /* slightly darker overlay */
+    background: rgba(0, 0, 0, 0.55);
+    /* slightly darker overlay */
     z-index: -1;
 }
 
+
 /* ---------- Navbar ---------- */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -40,7 +45,8 @@ body::before {
 .logo {
     font-size: 22px;
     font-weight: bold;
-    color: #FFD700; /* Gold highlight */
+    color: #FFD700;
+    /* Gold highlight */
 }
 
 .nav-links {
@@ -49,17 +55,21 @@ body::before {
 }
 
 .nav-links a {
-    color: #E0E0E0; /* Soft light text */
+    color: #E0E0E0;
+    /* Soft light text */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #FFD700; /* Gold on hover */
+    color: #FFD700;
+    /* Gold on hover */
 }
 
+
 /* ---------- Hero Header ---------- */
+
 .hero-header {
     text-align: center;
     padding-top: 120px;
@@ -73,7 +83,8 @@ body::before {
 
 .hero-content h1 {
     font-size: 3rem;
-    color: #FFD700; /* Gold */
+    color: #FFD700;
+    /* Gold */
     margin-bottom: 10px;
     letter-spacing: 1px;
 }
@@ -81,11 +92,13 @@ body::before {
 .hero-content h2 {
     font-size: 1.5rem;
     margin-bottom: 20px;
-    color: #B0E0E6; /* Soft Blue */
+    color: #B0E0E6;
+    /* Soft Blue */
 }
 
 .hero-content h2 span {
-    color: #00BFA5; /* Green accent */
+    color: #00BFA5;
+    /* Green accent */
     font-weight: 600;
 }
 
@@ -99,7 +112,8 @@ body::before {
 .hero-btn {
     display: inline-block;
     padding: 12px 25px;
-    background-color: #00BFA5; /* Primary green button */
+    background-color: #00BFA5;
+    /* Primary green button */
     color: white;
     border-radius: 8px;
     font-size: 1.1rem;
@@ -112,21 +126,31 @@ body::before {
     transform: scale(1.05);
 }
 
+
 /* ---------- Headings ---------- */
-h1, h2, h3, h4 {
+
+h1,
+h2,
+h3,
+h4 {
     margin-top: 1.5em;
     margin-bottom: 0.5em;
     font-weight: 600;
 }
 
+
 /* Paragraphs */
+
 p {
     margin-bottom: 1em;
 }
 
+
 /* ---------- Calculator Section ---------- */
+
 .calculator {
-    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    background: rgba(255, 255, 255, 0.95);
+    /* Slightly transparent white */
     padding: 25px;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -135,7 +159,9 @@ p {
     margin-top: 20px;
 }
 
+
 /* Inputs and Buttons */
+
 label {
     display: block;
     margin-top: 10px;
@@ -143,7 +169,8 @@ label {
     color: #333;
 }
 
-input[type="number"], select {
+input[type="number"],
+select {
     padding: 8px;
     width: 100%;
     margin-top: 5px;
@@ -166,7 +193,9 @@ button:hover {
     background-color: #00796B;
 }
 
+
 /* ---------- Results & Bars ---------- */
+
 .results {
     margin-top: 20px;
     padding: 15px;
@@ -191,8 +220,11 @@ button:hover {
     transition: width 0.5s;
 }
 
+
 /* ---------- Flashcards ---------- */
-#bars, #logic-container {
+
+#bars,
+#logic-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -216,6 +248,7 @@ button:hover {
     box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .oflashcard {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.55);
@@ -225,19 +258,21 @@ button:hover {
     color: #000;
     width: 90%;
     max-width: 950px;
-    min-height: 200px; /* smaller since this card has less content */
+    min-height: 200px;
+    /* smaller since this card has less content */
     font-size: 1.2rem;
     line-height: 1.6;
     box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-
     /* Wrapping */
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
 }
 
+
 /* Styling inner elements */
+
 .oflashcard p {
     margin-bottom: 20px;
     font-size: 1.1rem;
@@ -250,18 +285,17 @@ button:hover {
 }
 
 .oflashcard a {
-    color: #00796B; /* green accent for link */
+    color: #00796B;
+    /* green accent for link */
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .oflashcard a:hover {
-    color: #00BFA5; /* brighter green on hover */
+    color: #00BFA5;
+    /* brighter green on hover */
     text-decoration: underline;
 }
-
-
-
 
 .flashcard:hover {
     transform: translateY(-6px);
@@ -290,43 +324,43 @@ button:hover {
     background-color: rgba(0, 191, 165, 0.36);
 }
 
+
 /* ---------- Links ---------- */
+
 a {
-    color: #FFD700; /* Gold accent for links */
+    color: #FFD700;
+    /* Gold accent for links */
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #B0E0E6; /* Soft Blue on hover */
+    color: #B0E0E6;
+    /* Soft Blue on hover */
     text-decoration: underline;
 }
 
+
 /* ---------- Responsive Layout ---------- */
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
     }
-
     .logo {
         font-size: 18px;
     }
-
     .hero-content h1 {
         font-size: 2.2rem;
     }
-
     .hero-content p {
         font-size: 1rem;
         padding: 0 15px;
     }
-
     .flashcard {
-        min-height: auto; /* let height adjust on small screens */
+        min-height: auto;
+        /* let height adjust on small screens */
         padding: 25px;
         font-size: 1rem;
     }
 }
-
-
-
