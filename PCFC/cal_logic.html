@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Calculator Logic</title>
+    <style>
+        /* ---------- Body Reset & Background ---------- */
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #000000;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            /* slightly darker overlay */
+            z-index: -1;
+        }
+        /* Container */
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+        /* Page Title */
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #ffcc00;
+            /* same gold accent as index.html */
+            margin-bottom: 30px;
+        }
+        /* Section Cards */
+        
+        .section {
+            background-color: rgba(255, 255, 255, 0.1);
+            /* semi-transparent to match index.html flashcards */
+            border-radius: 18px;
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: left;
+            overflow-x: auto;
+        }
+        /* Section Headers */
+        
+        .section h3 {
+            color: #fff5f5;
+            /* green accent same as hero-btn in index.html */
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        /* Paragraphs and code-style spans */
+        
+        .section p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #F7F6F7;
+            margin: 6px 0;
+        }
+        /* Syntax Highlighting */
+        
+        .variable {
+            color: #ffffff;
+            font-weight: 500;
+        }
+        
+        .number {
+            color: #FFD700;
+        }
+        
+        .comment {
+            color: #9e9e9e;
+            font-style: italic;
+        }
+        
+        .function {
+            color: #FF8C00;
+            font-weight: bold;
+        }
+        /* Scrollbar for overflow */
+        
+        .section::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .section::-webkit-scrollbar-thumb {
+            background: rgba(0, 191, 165, 0.6);
+            border-radius: 3px;
+        }
+        
+        .section::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        /* Responsive adjustments */
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .section h3 {
+                font-size: 1.2rem;
+            }
+            .section p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Carbon Footprint Calculator Logic</h1>
+
+        <div class="section">
+            <h3>Car Emissions</h3>
+            <p><span class="comment">// Calculate fuel consumed and emissions</span></p>
+            <p><span class="variable">litersConsumed</span> = <span class="variable">carKm</span> * <span class="variable">carL100</span> / <span class="number">100</span></p>
+            <p><span class="variable">carEmissions</span> = <span class="variable">litersConsumed</span> * (<span class="variable">car_gasoline</span> or <span class="variable">car_diesel</span>)</p>
+        </div>
+
+        <div class="section">
+            <h3>Flight Emissions</h3>
+            <p><span class="variable">flightEmissions</span> = <span class="variable">flightKm</span> * <span class="variable">factor_for_flight_class</span></p>
+        </div>
+
+        <div class="section">
+            <h3>Electricity Emissions</h3>
+            <p><span class="comment">// Convert monthly consumption to annual kWh</span></p>
+            <p><span class="variable">electricity_kwh</span> = <span class="variable">monthlyWatts</span> * <span class="number">24</span> * <span class="number">30</span> / <span class="number">1000</span></p>
+            <p><span class="variable">electricityEmissions</span> = <span class="variable">electricity_kwh</span> * <span class="variable">electricity_factor</span></p>
+        </div>
+
+        <div class="section">
+            <h3>Total Footprint</h3>
+            <p><span class="variable">totalEmissions</span> = <span class="variable">carEmissions</span> + <span class="variable">flightEmissions</span> + <span class="variable">electricityEmissions</span> + ...</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
