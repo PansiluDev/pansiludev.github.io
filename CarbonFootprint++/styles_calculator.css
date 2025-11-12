@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-image: url('/website/CarbonFootprint++/images/background.jpg');
+    background-image: url('background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -169,3 +169,4 @@ a:hover {
         padding: 10px 20px;
     }
 }
+
