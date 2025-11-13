@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CarbonFootprintCalP | Pansilu Chethiya</title>
+
+    <!-- FAVICONS -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+         :root {
+            --deep-plum: #271033;
+            --teal: #388697;
+            --orange: #fa8334;
+            --pale-yellow: #fffd77;
+            --light-yellow: #ffe882;
+            --dark-bg: #1a0a24;
+            --glass: rgba(39, 16, 51, 0.3);
+            --glass-border: rgba(56, 134, 151, 0.3);
+            --text-primary: #e8d5f0;
+            --text-light: #ffffff;
+            --text-muted: #b8a4c8;
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, .5), 0 0 30px rgba(56, 134, 151, .2);
+            --gradient-top: linear-gradient(135deg, #271033, #388697, #fa8334, #fffd77, #ffe882);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            min-height: 100%;
+            background: var(--gradient-top);
+            background-size: 400% 400%;
+            animation: gradientShift 22s ease infinite;
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-primary);
+        }
+        
+        @keyframes gradientShift {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        body {
+            line-height: 1.7;
+            background: rgba(0, 0, 0, 0.95);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        /* Navigation */
+        
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all .4s;
+        }
+        
+        .navigation {
+            background: rgba(39, 16, 51, .5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .4);
+            transition: all .4s;
+        }
+        
+        .navigation.scrolled {
+            background: rgba(39, 16, 51, .7);
+            backdrop-filter: blur(25px);
+            padding: .75rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pale-yellow);
+            text-shadow: 0 0 12px rgba(255, 253, 119, .5);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: .95rem;
+            padding: .5rem 1rem;
+            transition: all .3s;
+            position: relative;
+            text-shadow: 0 0 8px rgba(56, 134, 151, .3);
+        }
+        
+        .nav-link:hover {
+            color: var(--orange);
+            text-shadow: 0 0 15px rgba(250, 131, 52, .6);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--teal), var(--orange));
+            box-shadow: 0 0 12px rgba(250, 131, 52, .5);
+            transition: width .3s;
+            transform: translateX(-50%);
+            border-radius: 1px;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-btn {
+            background: --orange;
+            color: var(--orange);
+            border: 2px solid var(--orange);
+            padding: .6rem 1.4rem;
+            border-radius: .4rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .4s;
+            box-shadow: 0 0 15px --orange;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
+            font-size: .9rem;
+        }
+        
+        .hero-btn:hover {
+            background: var(--orange);
+            color: #ffff;
+            border-color: var(--orange);
+            box-shadow: 0 0 30px rgba(250, 131, 52, .7);
+            transform: translateY(-3px);
+        }
+        
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(250, 131, 52, .3), transparent);
+            transition: .6s;
+        }
+        
+        .hero-btn:hover::before {
+            left: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: .5rem;
+            z-index: 1100;
+        }
+        
+        .mobile-menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--teal);
+            margin: 5px 0;
+            transition: .3s;
+            border-radius: 1px;
+            box-shadow: 0 0 8px rgba(56, 134, 151, .4);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        /* Hero */
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 0 4rem;
+        }
+        
+        .hero-card {
+            background: var(--glass);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border-radius: 1.5rem;
+            padding: 3.5rem 3rem;
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-lg);
+            animation: fadeInUp 1.2s ease-out;
+            z-index: 2;
+            position: relative;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero_h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            text-shadow: 0 0 12px rgba(56, 134, 151, .6), 0 0 20px rgba(250, 131, 52, .3), 0 4px 15px rgba(0, 0, 0, .5);
+        }
+        
+        .typewriter {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            color: var(--pale-yellow);
+            border-right: 3px solid var(--pale-yellow);
+            animation: typing 3s steps(20) 1s forwards, blink .75s step-end infinite;
+            width: 0;
+        }
+        
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 18ch;
+            }
+        }
+        
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 1.5rem auto 2rem;
+            line-height: 1.7;
+        }
+        
+        .cta-button {
+            background: transparent;
+            color: var(--orange);
+            border: 2px solid var(--orange);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .8rem;
+            transition: all .4s cubic-bezier(.4, 0, .2, 1);
+            box-shadow: 0 0 20px rgba(56, 134, 151, .4);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+        
+        .cta-button:hover {
+            background: var(--orange);
+            color: #fff;
+            border-color: var(--orange);
+            box-shadow: 0 0 40px rgba(250, 131, 52, .8);
+            transform: translateY(-5px);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(250, 131, 52, .3), transparent);
+            transition: .6s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button .arrow {
+            transition: transform .3s;
+        }
+        
+        .cta-button:hover .arrow {
+            transform: translateX(6px);
+        }
+        /* Sections */
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-light);
+            text-shadow: 0 0 12px rgba(56, 134, 151, .5);
+        }
+        /* About Section */
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image1 {
+            flex: 1;
+            min-width: 280px;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .about-image1 img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform .5s ease;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+        
+        .about-image1:hover img {
+            transform: scale(1.05);
+        }
+        
+        .abouth1 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .abouth1 .quotes {
+            font-size: 3.5rem;
+            color: var(--orange);
+            font-weight: 300;
+            position: absolute;
+            opacity: .7;
+        }
+        
+        .abouth1 .quotes:first-child {
+            top: -1rem;
+            left: -1.5rem;
+        }
+        
+        .abouth1 .quotes:last-child {
+            bottom: -1.5rem;
+            right: -1.5rem;
+        }
+        /* Responsive */
+        
+        @media (max-width:768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(39, 16, 51, .95);
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                transform: translateY(-150%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all .4s;
+                z-index: 1000;
+                gap: 1rem;
+            }
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            .hero_h1 {
+                font-size: 2.8rem;
+            }
+            .hero-card {
+                padding: 2.5rem 2rem;
+            }
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-text,
+            .about-image1 {
+                min-width: 100%;
+            }
+            .about-image1 {
+                order: 2;
+            }
+            .about-text {
+                order: 1;
+            }
+            .abouth1 {
+                font-size: 1.8rem;
+            }
+            .abouth1 .quotes {
+                font-size: 2.8rem;
+            }
+            .abouth1 .quotes:first-child {
+                top: -.8rem;
+                left: -1rem;
+            }
+            .abouth1 .quotes:last-child {
+                bottom: -1rem;
+                right: -1rem;
+            }
+        }
+        
+        @media (max-width:480px) {
+            .hero_h1 {
+                font-size: 2.3rem;
+            }
+            .typewriter {
+                font-size: 1.8rem;
+            }
+            .abouth1 {
+                font-size: 1.6rem;
+            }
+            .abouth1 .quotes {
+                font-size: 2.5rem;
+            }
+        }
+        /* ===== FLASHCARDS LAYOUT (THEMED & BIGGER) ===== */
+        
+        .flashcards-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 2rem;
+            justify-items: center;
+            background: transparent;
+        }
+        
+        .flashcard {
+            background: var(--glass);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .flashcard::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(56, 134, 151, 0.3), rgba(250, 131, 52, 0.3));
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+        
+        .flashcard:hover::before {
+            width: 100%;
+        }
+        
+        .flashcard:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 40px rgba(56, 134, 151, 0.3);
+        }
+        
+        .flashcard-h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--pale-yellow);
+            margin-bottom: 1.2rem;
+            text-shadow: 0 0 10px rgba(255, 253, 119, 0.4);
+        }
+        
+        .flashcard-p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin: 0 0 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .flashcard-ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem;
+        }
+        
+        .flashcard-ul li {
+            background: rgba a(39, 16, 51, 0.4);
+            color: var(--text-light);
+            border-radius: 0.8rem;
+            padding: 0.8rem 1.2rem;
+            margin-top: 0.6rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid rgba(56, 134, 151, 0.3);
+        }
+        
+        .flashcard-ul li:hover {
+            background: var(--orange);
+            color: #fff;
+            transform: translateX(4px);
+            box-shadow: 0 0 15px rgba(250, 131, 52, 0.5);
+        }
+        
+        .flashcard .getbutton {
+            background: transparent;
+            color: var(--teal);
+            border: 2px solid var(--teal);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 0 0 15px rgba(56, 134, 151, 0.3);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: auto;
+        }
+        
+        .flashcard .getbutton:hover {
+            background: var(--orange);
+            color: #fff;
+            border-color: var(--orange);
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(250, 131, 52, 0.6);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="navigation">
+                <div class="nav-container">
+                    <a href="#" class="logo" aria-label="Pansilu Chethiya">Pansilu Chethiya</a>
+                    <nav class="nav-links" id="navLinks">
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#tools" class="nav-link">Calculator</a>
+                        <a href="#source_code" class="nav-link">Source Code</a>
+                        <a href="#reduce" class="nav-link">Reduce</a>
+                        <a href="#tools" class="hero-btn">Try Calculator</a>
+                    </nav>
+                    <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-card">
+                <h1 class="hero_h1"><span class="typewriter">CarbonFootprint</span></h1>
+                <h2 style="margin:1rem 0;font-size:1.3rem;color:var(--text-light);">
+                    Developed by <a href="https://pansilu.netlify.app/" target="_blank" style="color:var(--teal);text-decoration:none;">Pansilu Chethiya</a>
+                </h2>
+                <p class="hero-subtitle">
+                    A free, open-source project designed to help you understand your carbon footprint and take meaningful steps toward a greener, sustainable future.
+                </p>
+                <a href="#tools" class="cta-button">Try the Calculator <span class="arrow">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+
+        <!-- 1. What is Carbon Footprint? -->
+        <div class="about-content">
+            <div class="about-image1">
+                <picture>
+                    <source srcset="../images/background@2x.jpg 2x, images/background.jpg 1x" media="(min-resolution: 2dppx)">
+                    <img src="../images/background.jpg" alt="Carbon footprint illustration" loading="lazy">
+                </picture>
+            </div>
+            <div class="about-text">
+                <h2 class="abouth1"><span class="quotes">“</span> What is Carbon<br>Footprint? <span class="quotes">”</span></h2>
+                <p>
+                    A carbon footprint is the total amount of greenhouse gases, like carbon dioxide and methane, released into the atmosphere by a person, organization, event, or product. It is a measure of the impact human activities have on climate change and is usually
+                    expressed in tons of carbon dioxide equivalent (CO₂e).
+                </p>
+                <p style="margin-top:1rem;">
+                    These emissions come from both direct actions, such as driving a car, and indirect ones, like the energy used to produce the goods and services we consume.
+                </p>
+            </div>
+        </div>
+
+        <!-- 2. How to Reduce -->
+        <div class="about-content" style="margin-top:4rem;">
+            <div class="about-text">
+                <h2 class="abouth1"><span class="quotes">“</span> How to Reduce<br>Carbon Footprint? <span class="quotes">”</span></h2>
+                <p>
+                    To reduce your carbon footprint, you can make impactful changes by focusing on transportation (walking, biking, or carpooling instead of driving), reducing energy consumption at home (efficiency upgrades and renewable energy), and altering your diet by
+                    eating less meat.
+                </p>
+                <p style="margin-top:1rem;">
+                    Additionally, minimize waste by recycling, reusing, and composting, and make conscious consumer choices by avoiding single-use plastics and buying less.
+                </p>
+            </div>
+            <div class="about-image1">
+                <picture>
+                    <source srcset="../images/Reduce-Carbon-Footprint@2x.jpg 2x, images/Reduce-Carbon-Footprint.jpg 1x" media="(min-resolution: 2dppx)">
+                    <img src="../images/Reduce-Carbon-Footprint.jpg" alt="Ways to reduce carbon footprint" loading="lazy">
+                </picture>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flashcards Section -->
+    <section id="tools">
+        <div class="flashcards-layout">
+            <div class="flashcard">
+                <h1 class="flashcard-h1">Carbon Footprint Calculator</h1>
+                <p class="flashcard-p">
+                    Calculate your personal carbon footprint with accurate, real-time estimates based on lifestyle inputs.
+                </p>
+                <ul class="flashcard-ul">
+                    <li>Track emissions from travel, energy, and diet</li>
+                    <li>Get personalized reduction tips</li>
+                </ul>
+                <a class="getbutton" href="../assets/GUI.py" download class="btn">Download For Free</a>
+            </div>
+
+            <div class="flashcard">
+                <h1 class="flashcard-h1">Coming Soon!</h1>
+                <p class="flashcard-p">More tools to help you live sustainably are in development.</p>
+                <ul class="flashcard-ul">
+                    <li>Stay tuned!</li>
+                </ul>
+                <a href="#" class="getbutton" onclick="alert('Coming soon!')">Learn More</a>
+            </div>
+
+            <div class="flashcard">
+                <h1 class="flashcard-h1">Coming Soon!</h1>
+                <p class="flashcard-p">Exciting new features on the way!</p>
+                <ul class="flashcard-ul">
+                    <li>Be the first to know</li>
+                </ul>
+                <a href="#" class="getbutton" onclick="alert('Coming soon!')">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            mobileToggle.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            mobileToggle.classList.remove('active');
+        }));
+        window.addEventListener('scroll', () => {
+            document.querySelector('.navigation').classList.toggle('scrolled', window.scrollY > 50);
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const tw = document.querySelector('.typewriter');
+            setTimeout(() => tw.style.width = '18ch', 100);
+        });
+    </script>
+</body>
+
+</html>
